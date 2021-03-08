@@ -11,39 +11,65 @@
     d:DesignHeight="400">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         
         <!--Header-->
-        <StackPanel Grid.ColumnSpan="2" Background="#F05A28" Orientation="Horizontal">
-            <Image Source="Images/logo.png" Height="90"/>
+        <StackPanel Grid.ColumnSpan="3" Background="#F05A28" Orientation="Horizontal">
+            <Image Source="Images/logo.png" Height="90" Margin="5"/>
             <TextBlock Text="Coffee Customers"
                        FontSize="30"
                        FontWeight="ExtraBold"
-                       Foreground="White"/>
+                       Foreground="White"
+                       VerticalAlignment="Bottom"
+                       Margin="20"/>
             <TextBlock Text="Version 1.0"
-                       Foreground="#333333"/>
+                       Foreground="#333333"
+                       VerticalAlignment="Bottom"
+                       Margin="0 0 0 25 "/>
         </StackPanel>
         
         <!-- Customer list -->
-        <StackPanel Grid.Row="1" Background="#EEEEEE">
-            <Button Margin="10" Click="ButtonAddCustomer_Click">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Symbol="AddFriend"/>
-                    <TextBlock Text="Add customer" Margin="5 0 0 0"/>
-                </StackPanel>
-            </Button>
-            <ListView>
+        <Grid Grid.Row="1" 
+              x:Name="customerListGrid"
+              Background="#EEEEEE">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="10" Click="ButtonMove_Click">
+                    <SymbolIcon Symbol="Forward"
+                                x:Name="moveSymbolIcon"/>
+                </Button>
+                <Button Margin="10" Click="ButtonAddCustomer_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="AddFriend"/>
+                        <TextBlock Text="Add" Margin="5 0 0 0"/>
+                    </StackPanel>
+                </Button>
+                <Button Margin="10" Click="ButtonDeleteCustomer_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Delete"/>
+                        <TextBlock Text="Delete" Margin="5 0 0 0"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <ListView Grid.Row="1">
                 <ListViewItem>Thomas</ListViewItem>
                 <ListViewItem>Julia</ListViewItem>
                 <ListViewItem>Anna</ListViewItem>
+                <ListViewItem>Sarah</ListViewItem>
             </ListView>
-        </StackPanel>
+        </Grid>
         
         <!--Customer detail -->
         <StackPanel Grid.Row="1" Grid.Column="1">
