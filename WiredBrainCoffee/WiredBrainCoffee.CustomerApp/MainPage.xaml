@@ -5,7 +5,8 @@
     xmlns:local="using:WiredBrainCoffee.CustomerApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:controls="using:WiredBrainCoffee.CustomerApp.Controls"
+    xmlns:controls="using:WiredBrainCoffee.CustomerApp.Controls" 
+    xmlns:model="using:WiredBrainCoffee.CustomerApp.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     d:DesignWidth="600"
@@ -74,7 +75,11 @@
         <!--Customer detail -->
         <controls:CustomerDetailControl Grid.Row="1" 
                                         Grid.Column="1"
-                                        x:Name="customerDetailControl"/>
-       
+                                        x:Name="customerDetailControl">
+           
+                <model:Customer FirstName="Thomas" LastName="Developer2" IsDeveloper="True"/>
+            
+        </controls:CustomerDetailControl>
+
     </Grid>
 </Page>
