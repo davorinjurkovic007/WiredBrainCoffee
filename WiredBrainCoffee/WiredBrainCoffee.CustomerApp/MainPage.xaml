@@ -11,9 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     d:DesignWidth="600"
     d:DesignHeight="400">
-    <Page.Resources>
-        <x:String x:Key="applicationTitle">Coffee Customers</x:String>
-    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -43,7 +40,7 @@
         <!-- Customer list -->
         <Grid Grid.Row="1" 
               x:Name="customerListGrid"
-              Background="#EEEEEE">
+              Background="{StaticResource customerListBackgorundBrush}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
