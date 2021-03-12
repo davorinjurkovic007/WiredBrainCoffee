@@ -8,7 +8,7 @@
     xmlns:controls="using:WiredBrainCoffee.CustomerApp.Controls" 
     xmlns:model="using:WiredBrainCoffee.CustomerApp.Model"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
     d:DesignWidth="600"
     d:DesignHeight="400">
     <Grid>
@@ -40,7 +40,7 @@
         <!-- Customer list -->
         <Grid Grid.Row="1" 
               x:Name="customerListGrid"
-              Background="{StaticResource customerListBackgorundBrush}">
+              Background="{ThemeResource customerListBackgorundBrush}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
