@@ -11,6 +11,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     d:DesignWidth="600"
     d:DesignHeight="400">
+    <Page.Resources>
+        <model:Customer x:Key="customerAnna" 
+                        FirstName="Anna" LastName=".NET Developer" IsDeveloper="True"/>
+        <model:Customer x:Key="customerThosmas"
+                        FirstName="Thomas" LastName="XAML Developer" IsDeveloper="True"/>
+    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -76,7 +82,7 @@
         <controls:CustomerDetailControl Grid.Row="1" 
                                         Grid.Column="1"
                                         x:Name="customerDetailControl"
-                                        Customer="Thomas,Developer,true"/>
+                                        Customer="{StaticResource customerAnna}"/>
 
 
 
