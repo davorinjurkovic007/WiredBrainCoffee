@@ -12,10 +12,7 @@
     d:DesignWidth="600"
     d:DesignHeight="400">
     <Page.Resources>
-        <model:Customer x:Key="customerAnna" 
-                        FirstName="Anna" LastName=".NET Developer" IsDeveloper="True"/>
-        <model:Customer x:Key="customerThosmas"
-                        FirstName="Thomas" LastName="XAML Developer" IsDeveloper="True"/>
+        <x:String x:Key="applicationTitle">Coffee Customers</x:String>
     </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -31,7 +28,7 @@
         <!--Header-->
         <StackPanel Grid.ColumnSpan="3" Background="#F05A28" Orientation="Horizontal">
             <Image Source="Images/logo.png" Height="90" Margin="5"/>
-            <TextBlock Text="Coffee Customers"
+            <TextBlock Text="{StaticResource applicationTitle}"
                        FontSize="30"
                        FontWeight="ExtraBold"
                        Foreground="White"
@@ -81,8 +78,7 @@
         <!--Customer detail -->
         <controls:CustomerDetailControl Grid.Row="1" 
                                         Grid.Column="1"
-                                        x:Name="customerDetailControl"
-                                        Customer="{StaticResource customerAnna}"/>
+                                        x:Name="customerDetailControl"/>
 
 
 
