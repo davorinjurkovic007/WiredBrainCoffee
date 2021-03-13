@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Markup;
 using WiredBrainCoffee.CustomerApp.Model;
@@ -8,7 +9,9 @@ namespace WiredBrainCoffee.CustomerApp.Controls
     [ContentProperty(Name = nameof(Customer))]
     public sealed partial class CustomerDetailControl : UserControl
     {
-        private Customer customer;
+        public static readonly DependencyProperty CustomerProperty =
+            DependencyProperty.Register("Customer", typeof(Customer), typeof(CustomerDetailControl), new PropertyMetadata(null));
+        //                               Ime propertia, klasa koja ima properti, vlasnik klase , povratna vrijednosti (null za string, 0 za int) i povratna funckija
 
         public CustomerDetailControl()
         {
@@ -17,35 +20,11 @@ namespace WiredBrainCoffee.CustomerApp.Controls
 
         public Customer Customer
         {
-            get { return customer; }
-            set 
-            { 
-                customer = value;
-                txtFirstName.Text = customer?.FirstName ?? "";
-                txtLastName.Text = customer?.LastName ?? "";
-                chkIsDeveloper.IsChecked = customer?.IsDeveloper;
-            }
+            get { return (Customer)GetValue(CustomerProperty); }
+            set { SetValue(CustomerProperty, value); }
         }
 
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateCustomer();
-        }
-
-        private void CheckBox_IsCheckedChanged(object sender, RoutedEventArgs e)
-        {
-            UpdateCustomer();
-        }
-
-        private void UpdateCustomer()
-        {
-            if (customer != null)
-            {
-                customer.FirstName = txtFirstName.Text;
-                customer.LastName = txtLastName.Text;
-                customer.IsDeveloper = chkIsDeveloper.IsChecked.GetValueOrDefault();
-            }
-        }
+       
+        
     }
 }
