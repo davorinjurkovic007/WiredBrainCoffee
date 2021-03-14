@@ -68,13 +68,13 @@
                 </Button>
             </StackPanel>
 
-            <ListView Grid.Row="1" x:Name="customerListView" ItemsSource="{Binding Customers,Mode=OneWay}"
-                      SelectedItem="{Binding SelectedCustomer,Mode=TwoWay}">
+            <ListView Grid.Row="1" x:Name="customerListView" ItemsSource="{x:Bind ViewModel.Customers,Mode=OneWay}"
+                      SelectedItem="{x:Bind ViewModel.SelectedCustomer,Mode=TwoWay}">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate x:DataType="model:Customer">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding FirstName, Mode=OneWay}" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding LastName, Mode=OneWay}" Margin="5 0 0 0"/>
+                            <TextBlock Text="{x:Bind FirstName, Mode=OneWay}" FontWeight="Bold"/>
+                            <TextBlock Text="{x:Bind LastName, Mode=OneWay}" Margin="5 0 0 0"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -86,7 +86,7 @@
         <!--Customer detail -->
         <controls:CustomerDetailControl Grid.Row="1" 
                                         Grid.Column="1"
-                                        Customer="{Binding SelectedCustomer, Mode=OneWay}"/>
+                                        Customer="{x:Bind ViewModel.SelectedCustomer, Mode=OneWay}"/>
 
 
 

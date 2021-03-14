@@ -21,7 +21,7 @@ namespace WiredBrainCoffee.CustomerApp
             
             this.InitializeComponent();
             ViewModel = new MainViewModel(new CustomerDataProvider());
-            DataContext = ViewModel;
+            //DataContext = ViewModel;
             this.Loaded += MainPage_Loaded;
             App.Current.Suspending += App_Suspending;
             RequestedTheme = App.Current.RequestedTheme == ApplicationTheme.Dark 
