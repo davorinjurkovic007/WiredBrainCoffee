@@ -68,7 +68,7 @@
                 </Button>
             </StackPanel>
 
-            <ListView Grid.Row="1" x:Name="customerListView"
+            <ListView Grid.Row="1" x:Name="customerListView" ItemsSource="{Binding Customers,Mode=OneWay}"
                       DisplayMemberPath="FirstName"/>
 
 
