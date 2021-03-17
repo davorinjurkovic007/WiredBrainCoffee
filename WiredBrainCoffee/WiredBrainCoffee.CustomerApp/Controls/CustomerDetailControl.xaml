@@ -8,12 +8,6 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-    <UserControl.Resources>
-        <Style x:Key="myTextBoxStyle" TargetType="TextBox">
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="CornerRadius" Value="5"/>
-        </Style>
-    </UserControl.Resources>
 
     <StackPanel>
         <TextBox Header="Firstname" Style="{StaticResource myTextBoxStyle}"
